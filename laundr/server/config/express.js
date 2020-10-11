@@ -2,8 +2,8 @@ const path = require('path'),
     express = require('express'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
-    bodyParser = require('body-parser')/*,
-    exampleRouter = require('../routes/examples.server.routes');*/
+    bodyParser = require('body-parser'),
+    exampleRouter = require('../routes/example.server.routes');
 
 module.exports.init = () => {
     /* 
