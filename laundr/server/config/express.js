@@ -3,7 +3,7 @@ const path = require('path'),
     mongoose = require('mongoose'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
-    exampleRouter = require('../routes/example.server.routes');
+    exampleRouter = require('../routes/example.server.routes.js');
 
 module.exports.init = () => {
     /* 
