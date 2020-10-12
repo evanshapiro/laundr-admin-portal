@@ -4,5 +4,8 @@
     "client",
     "server"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "mobx": "^6.0.1",
+    "mobx-react": "^7.0.0"
+  }
 }
