@@ -9,7 +9,7 @@
     "mobx-react": "^7.0.0"
   },
   "scripts": {
-    "postinstall": "npm install --prefix ./client"
+    "postinstall": "npm install --prefix ./client",
     "start": "npm start --prefix ./client"
   }
 }
