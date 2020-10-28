@@ -1,4 +1,4 @@
-body, html, #root, .app, .container {
+body, html, #root, .app {
   width: 100%;
   height: 100%;
 }
@@ -15,7 +15,19 @@ body, html, #root, .app, .container {
   background-position: left top;
   background-repeat:no-repeat;
   background-attachment:fixed;
+  min-height: 100%;
+}
 
+.table {
+  max-width: 80%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+.MuiTableRow-root > .MuiTableCell-body {
+  padding: 6px 16px;
 }
 
 .loginForm {

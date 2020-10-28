@@ -2,14 +2,17 @@ import React from 'react';
 import {observer} from 'mobx-react';
 import UserStore from './stores/UserStore';
 import LoginForm from './components/LoginForm';
+import UserTable from './components/UserTable';
 import SubmitButton from './components/SubmitButton';
 import './App.css';
 
 class App extends React.Component {
   
   async componentDidMount(){
-
-    try{
+    if(process.env.REACT_APP_SKIP_LOGIN == "true"){
+      UserStore.loading = false;
+      UserStore.isLoggedIn = true;
+    }else try{
 
       let res = await fetch('/isLoggedIn', {
         method: 'post',
@@ -59,7 +62,12 @@ class App extends React.Component {
         return (
           <div className="app">
             <div className= "container">
-              Welcome 
+              <UserTable
+                data={[
+                  { username: 'Bob', email: 'bob@gmail.com', createdDate: new Date('2015-3-8') },
+                  { username: 'Bill', email: 'bill@aol.com', createdDate: new Date('2018-7-11') }
+                ]} 
+              />
             </div>
           </div>
         );
