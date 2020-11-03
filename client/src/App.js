@@ -62,12 +62,7 @@ class App extends React.Component {
         return (
           <div className="app">
             <div className= "container">
-              <UserTable
-                data={[
-                  { username: 'Bob', email: 'bob@gmail.com', createdDate: new Date('2015-3-8') },
-                  { username: 'Bill', email: 'bill@aol.com', createdDate: new Date('2018-7-11') }
-                ]} 
-              />
+              <UserTable />
             </div>
           </div>
         );
