@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 const User = require("./models/user-model.js")
 
-mongoose.connect(process.env.DB_URI || require('./config/config.js').db.uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then(() =>
+mongoose.connect(process.env.DB_URI || require('./config/config.js.js.js.js.js').db.uri, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false}).then(() =>
 {
     console.log(`Successfully connected to MongoDB.`)
 });
