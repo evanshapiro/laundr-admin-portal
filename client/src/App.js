@@ -8,45 +8,16 @@ import {Container} from 'react-bootstrap';
 import axios from "axios";
 
 const App = (props) => {
-  const [userProps, setUserProps] = useState("");
-  const [loginState, setLoginState] = useState(false);
   
-  
-    if(process.env.REACT_APP_SKIP_LOGIN == "true"){
-      //UserStore.isLoggedIn = true;
-      setLoginState(true);
-    }
-
-    const loginStateUpdate = (value) =>{
-        setLoginState(value);
-    };
-  
-    if(UserStore.isLoggedIn){
-      return (
-        <div className="app">
-          <div className= "container">
-            <UserTable />
-            <SubscriptionTable />
-          </div>
-        </div>
-      );
-    }
-    
   // create logout function here
 
   return(
-    <Container>
-            <Router>
-                <Switch>
-                    <Route
-                        exact path="/"
-                        render={(props) => (
-                            <Login {...props} sendLogin={loginStateUpdate} />
-                        )}
-                    />   
-                </Switch>
-            </Router>
-        </Container>
+    <div className="app">
+      <div className= "container">
+        <UserTable />
+        <SubscriptionTable />
+      </div>
+    </div>
   );
   
 }
