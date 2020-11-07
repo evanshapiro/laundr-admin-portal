@@ -1,84 +1,54 @@
-import React from 'react';
-import {observer} from 'mobx-react';
+import React, {useState, useEffect} from 'react';
 import UserStore from './stores/UserStore';
-import LoginForm from './components/LoginForm';
+import Login from './components/Login';
 import UserTable from './components/UserTable';
 import SubscriptionTable from './components/SubscriptionTable';
-import SubmitButton from './components/SubmitButton';
-import './App.css';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import {Container} from 'react-bootstrap';
+import axios from "axios";
 
-class App extends React.Component {
+const App = (props) => {
+  const [userProps, setUserProps] = useState("");
+  const [loginState, setLoginState] = useState(false);
   
-  async componentDidMount(){
+  
     if(process.env.REACT_APP_SKIP_LOGIN == "true"){
-      UserStore.loading = false;
-      UserStore.isLoggedIn = true;
-    }else try{
-
-      let res = await fetch('/isLoggedIn', {
-        method: 'post',
-        headers:{
-          'Accept':'application/json',
-          'Content-Type': 'application/json'
-        }
-      });
-
-      let result = await res.json();
-
-      if (result && result.success){
-        UserStore.loading = false;
-        UserStore.isLoggedIn = true;
-        //UserStore.username = result.username;
-      }
-
-      else{
-        UserStore.loading = false;
-        UserStore.isLoggedIn = false;
-      }
-    
+      //UserStore.isLoggedIn = true;
+      setLoginState(true);
     }
 
-    catch(e){
-      UserStore.loading = false;
-      UserStore.isLoggedIn = false;
-    }
-  } 
-  // create logout function here
-
-  render(){
-
-    if(UserStore.loading){
+    const loginStateUpdate = (value) =>{
+        setLoginState(value);
+    };
+  
+    if(UserStore.isLoggedIn){
       return (
         <div className="app">
           <div className= "container">
-            Loading, please wait...  
+            <UserTable />
+            <SubscriptionTable />
           </div>
         </div>
       );
     }
+    
+  // create logout function here
 
-    else{
-
-      if(UserStore.isLoggedIn){
-        return (
-          <div className="app">
-            <div className= "container">
-              <UserTable />
-              <SubscriptionTable />
-            </div>
-          </div>
-        );
-      }
-      return (
-        <div className="app">
-          <div className='container'>
-            <LoginForm />
-          </div>
-        </div>
-      );
-    }
-  }
+  return(
+    <Container>
+            <Router>
+                <Switch>
+                    <Route
+                        exact path="/"
+                        render={(props) => (
+                            <Login {...props} sendLogin={loginStateUpdate} />
+                        )}
+                    />   
+                </Switch>
+            </Router>
+        </Container>
+  );
   
 }
 
-export default observer(App);
+export default App;
