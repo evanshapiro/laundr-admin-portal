@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://402PaymentReq:cen3031@laundr-admin-portal.c3tmw.mongodb.net/<dbname>?retryWrites=true&w=majority", 
+    "jwtSecret": "mysecrettoken"
+}
+
+

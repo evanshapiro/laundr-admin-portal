@@ -4,13 +4,15 @@ const path = require('path'),
     morgan = require('morgan'),
     bodyParser = require('body-parser'),
     exampleRouter = require('../routes/example.server.routes.js');
+// const config = require('config');
+// const db = config.get('mongoURI');
 
 module.exports.init = () => {
     /* 
         connect to database
         - reference README for db uri
     */
-    mongoose.connect(process.env.DB_URI || require('./config').db.uri, {
+    mongoose.connect(process.env.DB_URI || require('./config/config.js'), {
         useNewUrlParser: true
     });
     mongoose.set('useCreateIndex', true);
