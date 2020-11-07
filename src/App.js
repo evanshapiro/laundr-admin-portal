@@ -3,6 +3,7 @@ import {observer} from 'mobx-react';
 import UserStore from './stores/UserStore';
 import LoginForm from './components/LoginForm';
 import UserTable from './components/UserTable';
+import SubscriptionTable from './components/SubscriptionTable';
 import SubmitButton from './components/SubmitButton';
 import './App.css';
 
@@ -63,6 +64,7 @@ class App extends React.Component {
           <div className="app">
             <div className= "container">
               <UserTable />
+              <SubscriptionTable />
             </div>
           </div>
         );

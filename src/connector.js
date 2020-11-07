@@ -10,3 +10,6 @@ function fetchFromBackend(path, method = "GET"){
 export function getUserData(){
     return fetchFromBackend('users')
 }
+export function getSubscriptionData(){
+    return fetchFromBackend('subscriptions')
+}
