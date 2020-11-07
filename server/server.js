@@ -33,7 +33,7 @@ app.use(cors())
 app.use(bodyParser.json());
 
 app.use(express.json ({extended: false}));
-app.get('/', (req, res) => res.send('API Running'));//test router
+//app.get('/', (req, res) => res.send('API Running'));//test router
 app.use('/api/users', require ('./routes/api/users'));
 app.use('/api/auth', require ('./routes/api/auth'));
 
