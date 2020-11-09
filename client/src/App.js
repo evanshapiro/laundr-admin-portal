@@ -6,16 +6,19 @@ import SubscriptionTable from './components/SubscriptionTable';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import axios from "axios";
+import Dashboard from './pages/Dashboard';
+import LoginForm from "./components/LoginForm"
 
 const App = (props) => {
   
   // create logout function here
-
+  //  <UserTable />
+  //<SubscriptionTable />
+  
   return(
     <div className="app">
       <div className= "container">
-        <UserTable />
-        <SubscriptionTable />
+        <Dashboard/>  
       </div>
     </div>
   );

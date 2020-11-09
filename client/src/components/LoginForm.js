@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
 
     render(){
         return (
-         <div className="loginForm">
+         <div className="body blue">
              
            <p><b>This link is password protected </b>
            Please enter the password to continue
