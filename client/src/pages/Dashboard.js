@@ -87,7 +87,7 @@ class SideNav extends React.Component {
                     <div style={{display: "inline-flex" , justifyContent: "space-around"}}>
                       <button style={{marginRight: "3%"}}>Home</button> <br/>
                       <button style={{marginRight: "3%"}}>Account</button> <br/>
-                      <button style={{marginRight: "3%"}}>Logout</button>
+                      <Link to="/logout">Logout</Link>
                     </div>
                   </div>
                   <div className="align">
