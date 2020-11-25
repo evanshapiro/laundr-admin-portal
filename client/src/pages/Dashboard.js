@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import logo from "../images/logo-blue.png";
 import Frame from "../components/Frame";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 // import Button from 
 import {
   Navbar, NavlinkDropdown,
@@ -27,7 +28,7 @@ class SideNav extends React.Component {
 
     return (
     <div >
-     
+
       <div id='layout'>
       
           <div id='left' className={leftOpen} >
@@ -90,10 +91,33 @@ class SideNav extends React.Component {
                       <button style={{marginRight: "3%"}}>Logout</button>
                     </div>
                   </div>
-                  <div className="align">
-                    <Frame data="frame full">
-                      <p className="align"> </p>
-                    </Frame>
+
+                  <div>
+                    <Tabs>
+                      <TabList>
+                        <Tab>Subscribers</Tab>
+                        <Tab>Orders</Tab>
+                        <Tab>Total Lbs</Tab>
+                      </TabList>
+                      <TabPanel>
+                        <Frame data="frame full">
+                          <p className="align"> </p>
+                          Subscribers Graph
+                        </Frame>
+                      </TabPanel>
+                      <TabPanel>
+                        <Frame data="frame full">
+                          <p className="align"> </p>
+                          Orders Graph
+                        </Frame>
+                      </TabPanel>
+                      <TabPanel>
+                        <Frame data="frame full">
+                          <p className="align"> </p>
+                          Total Lbs Graph
+                          </Frame>
+                      </TabPanel>
+                    </Tabs>
                   </div>
                   <div className="align row">
                     <Frame data="frame even3">
