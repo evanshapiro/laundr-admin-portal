@@ -1,14 +1,13 @@
 const mongoose = require('mongoose');
 
 const subscriptionSchema = new mongoose.Schema({
-    orderNumber: { type: Number, required: true }, // TODO make unique
     customerName: { type: String, required: true }, // TODO make unique
-    pickupTime:{ type: Date, required: true },
-    deliveryTime:{ type: Date, required: true },
-    driverName:{ type: String, required: true },
-    customerAddress:{ type: String, required: true },
-    orderStatus:{ type: String, required: true },
-    orderWeight:{ type: String, required: true }
+    subscriptionType:{ type: String, required: true },
+    startDate:{ type: Date, required: true },
+    renewalDate:{ type: Date, required: true },
+    maximumWeight:{ type: String, required: true },
+    currentWeight:{ type: String, required: true },
+    subscriptionStatus:{ type: String, required: true }
 });
 
 module.exports = mongoose.model('subscriptions', subscriptionSchema);

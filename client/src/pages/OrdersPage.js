@@ -1,17 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import OrderTable from '../components/OrderTable';
 
-
-export default class OrdersPage extends React.Component {
-  constructor(props) {
-      super(props);
-  }
-
-  render() {
-      return(
-          <div>
-              OrdersPage
-          </div>
-      )
-  }
-}
+const OrdersPage = () => (
+  <div>
+    <OrderTable />
+  </div>
+);
+export default OrdersPage;
