@@ -9,12 +9,7 @@ const Login = (props) =>{
     const [loginError, setloginError] = useState("");
     const [hash, setHash] = useState("");
 
-    const updateLogin = (value) =>
-    {
-        props.sendLogin(value);
-    };
-
-    const history = useHistory(); //
+    const history = useHistory(); // TODO remove?
 
     const handleSubmit = async (event) =>{
         event.preventDefault();
@@ -35,44 +30,45 @@ const Login = (props) =>{
     }
 
     return (
+        <div className="login-page">
+            <div className="modal-dialog text-center">
+                <div className="col-sm-9 main-section">
+                    <div className="modal-content">
+                        <label>
+                            <b>Please enter password to view this page:</b> 
+                    </label>
+                        <br />
+                        {
+                            loginError == "" ? null : <Alert variant='danger'>{loginError}</Alert>
+                        }
+                        <form id="login" onSubmit={handleSubmit}>
 
-        <div className="modal-dialog text-center">
-            <div className="col-sm-9 main-section">
-                <div className="modal-content">
-                    <label>
-                        <b>Please enter password to view this page:</b> 
-                   </label>
-                    <br />
-                    {
-                        loginError == "" ? null : <Alert variant='danger'>{loginError}</Alert>
-                    }
-                    <form id="login" onSubmit={handleSubmit}>
+                            <div className="form-group2">
+                                <input
+                                    
+                                    id="inputPassword"
+                                    type="password"
+                                    placeholder="Password"
+                                    value={hash}
+                                    onChange={event => setHash(event.target.value)}
+                                />
+                            </div>
 
-                        <div className="form-group2">
-                            <input
+                            <div>
+                                <input type="checkbox" onChange={event => showPassword(event.target.value)} />
+                                &nbsp;Show Password
+                            </div>
+                            <div>
+                        <br />
+                                <input className="button" type="submit" value="Submit" />
                                 
-                                id="inputPassword"
-                                type="password"
-                                placeholder="Password"
-                                value={hash}
-                                onChange={event => setHash(event.target.value)}
-                            />
-                        </div>
+                            </div>
 
-                        <label >
-                            <input type="checkbox" onChange={event => showPassword(event.target.value)} />
-                            &nbsp;Show Password
-                        </label>
-                        <div>
-                    <br />
-                            <input className="button" type="submit" value="Submit" />
-                            
-                        </div>
-
-                    </form>
+                        </form>
 
 
 
+                    </div>
                 </div>
             </div>
         </div>
