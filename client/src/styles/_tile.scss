@@ -1,0 +1,23 @@
+.tile_text {
+  color: black;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  font-size: 1.8vw;
+}
+.tile {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &.glance1 {
+    background: $glance1;
+  }
+  &.glance2 {
+    background: $glance2;
+  }
+  &.glance3 {
+    background: $glance3;
+  }
+  width: ($widget-size / 4) - 4 * $margin-size;
+  height: $widget-height/1.2;
+}
