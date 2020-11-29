@@ -6,9 +6,15 @@ export default class DashboardContent extends React.Component {
     return (
         <div>
 
+    
       <div className="align">
       <Frame data="frame full">
+      <div style={{justifyContent: "space-around"}}>
+        <div className="frame_header">
+            Subscriptions
+        </div>
         <Line />
+      </div>
       </Frame>
     </div>
     <div className="align row">
@@ -33,12 +39,22 @@ export default class DashboardContent extends React.Component {
     </div>
     <div className="align">
       <Frame data="frame full">
-        <Line />
+      <div style={{justifyContent: "space-around"}}>
+            <div className="frame_header">
+                Orders Processed
+            </div>
+            <Line />
+        </div>
       </Frame>
     </div>
     <div className="align">
       <Frame data="frame full">
+      <div style={{justifyContent: "space-around"}}>
+        <div className="frame_header">
+            Total Lbs Washed
+        </div>
         <Line />
+        </div>
       </Frame>
     </div>
         </div>
