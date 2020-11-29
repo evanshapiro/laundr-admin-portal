@@ -3,6 +3,7 @@ import UserStore from './stores/UserStore';
 import Login from './components/Login';
 import UserTable from './components/UserTable';
 import SubscriptionTable from './components/SubscriptionTable';
+import OrderTable from './components/OrderTable';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import axios from "axios";
@@ -14,6 +15,7 @@ const App = (props) => {
   // create logout function here
   //  <UserTable />
   //<SubscriptionTable />
+  //<OrderTable />
   
   return(
     <div className="app">
@@ -22,7 +24,7 @@ const App = (props) => {
       </div>
     </div>
   );
-  
+
 }
 
 export default App;

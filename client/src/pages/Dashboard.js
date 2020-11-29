@@ -24,7 +24,7 @@ class Dashboard extends React.Component {
 
     return (
     <div >
-     
+
       <div id='layout'>
       
           <div id='left' className={leftOpen} >
@@ -77,7 +77,9 @@ class Dashboard extends React.Component {
                       </div>
                     </div>
                   </div>
+
                   <DashboardContent/>
+
               </div>
           </div>
 

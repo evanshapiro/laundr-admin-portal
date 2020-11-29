@@ -13,3 +13,6 @@ export function getUserData(){
 export function getSubscriptionData(){
     return fetchFromBackend('subscriptions')
 }
+export function getOrderData(){
+    return fetchFromBackend('orders')
+}

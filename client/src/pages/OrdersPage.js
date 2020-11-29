@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from "react-router-dom";
+import OrderTable from '../components/OrderTable';
 import logo from "../images/logo-blue.png";
 import {Button} from "@material-ui/core"
 
@@ -76,7 +77,9 @@ class OrdersPage extends React.Component {
                       </div>
                     </div>
                   </div>
-                  <div>OrdersPage</div>
+                  <div>
+                    <OrderTable />
+                  </div>
               </div>
           </div>
 
