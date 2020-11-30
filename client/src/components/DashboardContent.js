@@ -1,6 +1,7 @@
 import React from "react";
 import Frame from "../components/Frame";
 import Line from "../components/Line";
+
 export default class DashboardContent extends React.Component {
   render() {
     return (
