@@ -3,11 +3,9 @@
 
   text-align: right !important;
   padding-top: 1.5em !important;
-  margin-left: 2% !important;
-  margin-right: 2% !important;
 
   &__tab-list {
-/*    border-bottom: 1px solid #aaa;*/
+    /*    border-bottom: 1px solid #aaa;*/
     border-bottom: none !important;
     margin: 0 0 10px;
     padding: 0;
@@ -58,7 +56,7 @@
 
     &--selected {
       display: block;
-      text-align: center !important;
+      text-align: left !important;
     }
   }
 }
