@@ -8,7 +8,6 @@ import Navigation from "../components/Navigation";
 /*
   TODO:
   - Make graphs responsive (me)
-  - Remove that footer bar (me)
   - Add rest of graph tabs
   - Add tables to users, orders, and subs page
   - Add real data

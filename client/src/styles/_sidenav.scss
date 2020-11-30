@@ -14,7 +14,7 @@
 }
 
 :root {
-  --landscape-width: 23; // % OR vw for responsive window resizing!
+  --landscape-width: 23;
   --portrait-width: 80vw;
   --header-height: 4rem;
   --secs: 0.4s;
@@ -47,7 +47,8 @@ body {
   .content {
     overflow: auto;
     box-sizing: border-box;
-    height: calc(100vh - var(--header-height));
+    height: calc(110vh - var(--header-height));
+    padding-bottom: 5%;
   }
 }
 
@@ -119,18 +120,3 @@ body {
     }
   }
 }
-
-// Right sidebar specific style:
-// #right {
-//   .icon {
-//     right: 0;
-//   }
-//   .sidebar {
-//     background: var(--bg-right);
-//     @media (orientation: portrait) {
-//       &.open {
-//         transform: translateX(-100%);
-//       }
-//     } // <-- Right portrait sidebar ONLY!
-//   }
-// }
