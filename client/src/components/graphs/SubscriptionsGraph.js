@@ -20,7 +20,7 @@ export default class SubscriptionsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Subscriptions</div>
-                  <Line data={random1.data} />
+                  <Line data={random1.data} data2={random3.data} />
                 </div>
               </Frame>
             </div>
@@ -73,7 +73,7 @@ export default class SubscriptionsGraph extends React.Component {
 
 const random1 = {
   data: [
-    { x: 1, y: 3 },
+    { x: 1, y: 1 },
     { x: 2, y: 5 },
     { x: 3, y: 15 },
     { x: 4, y: 12 },
@@ -90,7 +90,7 @@ const random1 = {
 
 const random2 = {
   data: [
-    { x: 1, y: 5 },
+    { x: 1, y: 1 },
     { x: 2, y: 15 },
     { x: 3, y: 5 },
     { x: 4, y: 2 },

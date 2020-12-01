@@ -1,7 +1,5 @@
 import React from "react";
-
 import {
-  XYPlot,
   XAxis,
   YAxis,
   ChartLabel,
@@ -10,8 +8,6 @@ import {
   LineSeries,
   FlexibleXYPlot,
 } from "react-vis";
-
-const LineData = LineSeries;
 
 const Line = (props) => (
   <div class="rv-xy-plot" style={{ flex: 1 }}>
@@ -30,14 +26,14 @@ const Line = (props) => (
         <XAxis />
         <YAxis />
         <ChartLabel
-          text="X Axis"
+          text=""
           className="alt-x-label"
           includeMargin={false}
           xPercent={0.025}
           yPercent={1.01}
         />
         <ChartLabel
-          text="Y Axis"
+          text=""
           className="alt-y-label"
           includeMargin={false}
           xPercent={0.06}
@@ -48,7 +44,12 @@ const Line = (props) => (
           }}
         />
 
-        <LineData data={props.data} />
+        <LineSeries data={props.data} />
+        <LineSeries
+          className="fourth-series"
+          color="#FFB600"
+          data={props.data2}
+        />
       </FlexibleXYPlot>
     </div>
   </div>
