@@ -20,3 +20,12 @@ a:active {
     margin-right: 1rem;
   }
 }
+
+.rv-xy-plot {
+  // decouples the outer container width from inner container width (width check happens before svg render)
+  position: absolute;
+  // masks any glitches caused by denounce on resize event (obv combined with a bit lighter denounce would help more)
+  overflow: hidden;
+  width: 100%;
+  height: 40vw;
+}
