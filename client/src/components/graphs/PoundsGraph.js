@@ -1,19 +1,60 @@
 import React from "react";
 import Frame from "../Frame";
 import Line from "../Line";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 export default class PoundsGraph extends React.Component {
   render() {
     return (
       <div>
-        <div className="align">
-          <Frame data="frame full">
-            <div style={{ justifyContent: "space-around" }}>
-              <div className="frame_header">Total Lbs Washed</div>
-              <Line data={random3.data} />
+        <Tabs>
+          <TabList>
+            <Tab>Today</Tab>
+            <Tab>7 Days</Tab>
+            <Tab>30 Days</Tab>
+            <Tab>All</Tab>
+          </TabList>
+          <TabPanel>
+            <div className="align">
+              <Frame data="frame full">
+                <div style={{ justifyContent: "space-around" }}>
+                  <div className="frame_header">Total LBS Processed</div>
+                  <Line data={random2.data} />
+                </div>
+              </Frame>
             </div>
-          </Frame>
-        </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="align">
+              <Frame data="frame full">
+                <div style={{ justifyContent: "space-around" }}>
+                  <div className="frame_header">Total LBS Processed</div>
+                  <Line data={random1.data} />
+                </div>
+              </Frame>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="align">
+              <Frame data="frame full">
+                <div style={{ justifyContent: "space-around" }}>
+                  <div className="frame_header">Total LBS Processed</div>
+                  <Line data={random3.data} />
+                </div>
+              </Frame>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="align">
+              <Frame data="frame full">
+                <div style={{ justifyContent: "space-around" }}>
+                  <div className="frame_header">Total LBS Processed</div>
+                  <Line data={random2.data} />
+                </div>
+              </Frame>
+            </div>
+          </TabPanel>
+        </Tabs>
       </div>
     );
   }

@@ -10,40 +10,6 @@
   padding: 6px 16px;
 }
 
-/* Body */
-html,
-body #app,
-#app > div {
-  height: 100% !important;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: $off-white;
-  //background-image: url("../images/logo.png");
-  //background-position: left top;
-  background-repeat: no-repeat;
-  min-height: 100%;
-}
-/*General*/
-* {
-  box-sizing: border-box;
-}
-
-.background {
-  background: #ffffff;
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .hidden {
   display: none;
 }

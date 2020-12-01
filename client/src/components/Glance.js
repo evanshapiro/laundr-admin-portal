@@ -29,7 +29,7 @@ export default class Glance extends React.Component {
               <div style={{ fontSize: 40 }}>{glance1data.data}</div>
             </div>
           </Frame>
-          <Frame data="frame even3 tile glance3">
+          <Frame data="frame even3 tile glance1">
             <div
               className="tile_text"
               style={{ textAlign: "center", justifyContent: "center" }}
@@ -38,7 +38,7 @@ export default class Glance extends React.Component {
               <div style={{ fontSize: 40 }}>{glance2data.data}</div>
             </div>
           </Frame>
-          <Frame data="frame even3 tile glance2">
+          <Frame data="frame even3 tile glance1">
             <div
               className="tile_text"
               style={{ textAlign: "center", justifyContent: "center" }}

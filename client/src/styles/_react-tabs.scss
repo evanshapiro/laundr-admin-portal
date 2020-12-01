@@ -20,13 +20,12 @@
     list-style: none;
     padding: 6px 12px;
     cursor: pointer;
+    margin-right: 1rem;
 
     &--selected {
       background: #eaedee !important;
-      border-color: #aaa;
       color: black;
       border-radius: 5px 5px 5px 5px !important;
-      border: 1px solid #aaa !important;
     }
 
     &--disabled {
