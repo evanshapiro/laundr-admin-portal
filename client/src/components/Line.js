@@ -20,7 +20,7 @@ const Line = (props) => (
         height: "40vh",
       }}
     >
-      <FlexibleXYPlot>
+      <FlexibleXYPlot xType="time">
         <HorizontalGridLines />
         <VerticalGridLines />
         <XAxis />
