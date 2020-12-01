@@ -9,8 +9,8 @@
 }
 
 .sidenav a:hover {
-  background-color: #f9f9f9;
-  border-left: #e9f5f7;
+  background-color: white;
+  border-left: 4px solid $primary-blue;
 }
 
 :root {
@@ -19,7 +19,7 @@
   --header-height: 4rem;
   --secs: 0.4s;
   --bg-left: #eaedee; //$lightblue;
-  --bg-main: #f9f9f9; //$off-white;
+  --bg-main: white;
 }
 
 body {

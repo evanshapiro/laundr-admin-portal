@@ -17,7 +17,7 @@ export default class Glance extends React.Component {
               <div style={{ fontSize: 40 }}>172</div>
             </div>
           </Frame>
-          <Frame data="frame even3 tile glance2">
+          <Frame data="frame even3 tile glance3">
             <div
               className="tile_text"
               style={{ textAlign: "center", justifyContent: "center" }}

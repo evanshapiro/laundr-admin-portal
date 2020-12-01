@@ -7,11 +7,9 @@ import Navigation from "../components/Navigation";
 
 /*
   TODO:
-  - Make graphs responsive (me)
   - Add rest of graph tabs
   - Add tables to users, orders, and subs page
   - Add real data
-  - Create Account page
   - Make sure log in and log out work
 */
 
