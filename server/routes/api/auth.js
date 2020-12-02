@@ -3,17 +3,17 @@ const router = express.Router();
 const bcrypt = require ('bcryptjs');
 const auth = require ('../../middleware/auth'); 
 const jwt = require ('jsonwebtoken');
-const config = require('config');
+const config = require('../../config/config.js');
 const { check, validationResult } = require('express-validator');
 
 
-const User = require ('../../models/user-model');
+const Auth = require ('../../models/auth-model');
 //@route    GET api/auth
 //@desc     Test route
 //@access   Public
 router.get('/', auth, async(req, res) => {
     try {
-        const user = await User.findById(req.users.id).select('-password');
+        const user = await Auth.findById(req.user.id).select('-passwordHash');
         res.json(user);
     }catch(err){
     console.error(err.message);
@@ -39,7 +39,7 @@ async(req, res) => {
 
     try{
         //see if user exists
-        let user = await User.findOne({email});
+        let user = await Auth.findOne({email});
 
         if(!user){
             return res
@@ -47,7 +47,7 @@ async(req, res) => {
                 .json({ errors: [{ msg: 'Invalid Credentials'}] });
         }
 
-        const isMatch = await bcrypt.compare(password, user.password); //plain text, encrypted pw
+        const isMatch = await bcrypt.compare(password, user.passwordHash); //plain text, encrypted pw
         if(!isMatch){
             return res
                 .status(400)
@@ -56,15 +56,14 @@ async(req, res) => {
 
         //return jsonwebtoken - logged in right away
         const payload = {
-            users: {
+            user: {
                 id: user.id
             }
         }
 
         jwt.sign (payload, 
-            "JWTSECRET",
-            //process.env.JWTSECRET,
-            {expiresIn: 10},
+            config.jwtSecret,
+            {expiresIn: "30 minutes"},
             (err, token) => {
                 if (err) throw err;
                 res.json({token}); //sending back the token 

@@ -22,25 +22,14 @@ const app = express();
 // TODO only use this in local dev
 app.use(cors())
 
-//app.use(express.static(publicPath));
-
-//Bodyparser Middleware
-// app.use(bodyParser.urlencoded({
-//     extended: true
-// }));
-
 // body parsing middleware
 app.use(bodyParser.json());
-
 app.use(express.json ({extended: false}));
-//app.get('/', (req, res) => res.send('API Running'));//test router
-app.use('/api/users', require ('./routes/api/users'));
-app.use('/api/auth', require ('./routes/api/auth'));
 
-// add a router
+app.use('/api/auth', require ('./routes/api/auth'));
 app.use('/api/v1', v1Router);
 
-//server static assets in production
+//serve static assets in production
 if(process.env.NODE_ENV === 'production'){
     //set static folder
     app.use(express.static(path.join(__dirname, '../client/build')));
