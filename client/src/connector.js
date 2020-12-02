@@ -10,7 +10,11 @@ function fetchFromBackend(path, method = "GET"){
             Accept: 'application/json',
             "x-auth-token": UserStore.jwt
         }
-    }).then(res => res.json()); // TODO catch unauthorized and update user store
+    }).then(res => {
+        if(res.status === 401) UserStore.isLoggedIn = false
+        if(res.status !== 200) throw new Error(JSON.stringify(res.json()))
+        return res.json()
+    }); // TODO catch unauthorized and update user store
 }
 
 function postToBackend(path, body){
