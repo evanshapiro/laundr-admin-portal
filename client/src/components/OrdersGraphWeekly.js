@@ -76,7 +76,7 @@ export default class OrdersGraphWeekly extends React.Component {
             
             
             <div id="chart-line2">
-                <ReactApexChart options={this.state.weekOptions} series={this.state.weekSeries} type="line" height={300} />
+                <ReactApexChart options={this.state.weekOptions} series={this.state.weekSeries} type="area" height={300} />
             </div>
            
         </div>

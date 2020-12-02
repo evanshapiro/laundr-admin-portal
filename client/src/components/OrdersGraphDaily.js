@@ -78,7 +78,7 @@ export default class OrdersGraphDaily extends React.Component {
       return (
         <div id="wrapper">
             <div id="chart-line">
-                <ReactApexChart options={this.state.dayOptions} series={this.state.daySeries} type="line" height={300} />
+                <ReactApexChart options={this.state.dayOptions} series={this.state.daySeries} type="area" height={300} />
             </div>
         </div>
       );
