@@ -6,5 +6,5 @@ module.exports = {
         
     },
     jwtSecret: '7g1ukymdutyrbli5h', // generated with Math.random().toString(36).substring(7) https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
-    skipAuth: true
+    skipAuth: false
 };
