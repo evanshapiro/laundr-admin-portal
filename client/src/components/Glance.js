@@ -1,21 +1,42 @@
 import React from "react";
 import Frame from "../components/Frame";
-import Line from "../components/Line";
-import SubscriptionsGraph from "../components/graphs/SubscriptionsGraph";
-
-const glance1data = {
-  data: "172",
-};
-
-const glance2data = {
-  data: "1,722",
-};
+import { getSubscriptionData, getOrderData } from '../connector'
 
 const glance3data = {
   data: "3,172",
 };
 
 export default class Glance extends React.Component {
+  
+  constructor(props){
+    super(props);
+    this.state = {
+      subscriptions: null,
+      pounds: null,
+      orders: null
+    }
+  }
+  
+  async componentDidMount(){
+    getSubscriptionData()
+      .then(res => {
+        this.setState({
+          subscriptions: res.length,
+        })
+      }).catch(err => {
+        console.error(err)
+      })
+    getOrderData()
+      .then(res => {
+        this.setState({
+          pounds: res.map(order => parseFloat(order.orderWeight)).reduce((a,b) => a + b).toString().split('.')[0],
+          orders: res.length
+        })
+      }).catch(err => {
+        console.error(err)
+      })
+  }
+
   render() {
     return (
       <div>
@@ -26,7 +47,7 @@ export default class Glance extends React.Component {
               style={{ textAlign: "center", justifyContent: "center" }}
             >
               <div style={{ marginBottom: 10 }}>Total # Subscriptions</div>
-              <div style={{ fontSize: 40 }}>{glance1data.data}</div>
+              <div style={{ fontSize: 40 }}>{this.state.subscriptions}</div>
             </div>
           </Frame>
           <Frame data="frame even3 tile glance1">
@@ -35,7 +56,7 @@ export default class Glance extends React.Component {
               style={{ textAlign: "center", justifyContent: "center" }}
             >
               <div style={{ marginBottom: 10 }}>Total Orders Processed</div>
-              <div style={{ fontSize: 40 }}>{glance2data.data}</div>
+              <div style={{ fontSize: 40 }}>{this.state.orders}</div>
             </div>
           </Frame>
           <Frame data="frame even3 tile glance1">
@@ -44,7 +65,7 @@ export default class Glance extends React.Component {
               style={{ textAlign: "center", justifyContent: "center" }}
             >
               <div style={{ marginBottom: 10 }}>Total Pounds Washed</div>
-              <div style={{ fontSize: 40 }}>{glance3data.data}</div>
+              <div style={{ fontSize: 40 }}>{this.state.pounds}</div>
             </div>
           </Frame>
         </div>
