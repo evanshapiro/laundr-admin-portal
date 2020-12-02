@@ -1,9 +1,6 @@
 import React from "react";
 import Frame from "../Frame";
-import PoundsGraphDaily from "../PoundsGraphDaily";
-import PoundsGraphWeekly from "../PoundsGraphWeekly";
-import PoundsGraphMonthly from "../PoundsGraphMonthly";
-import PoundsGraphTotal from "../PoundsGraphTotal";
+import Line from "../Line";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 export default class PoundsGraph extends React.Component {
@@ -22,7 +19,7 @@ export default class PoundsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Total LBS Processed</div>
-                  <PoundsGraphDaily />
+                  <Line data={random2.data} />
                 </div>
               </Frame>
             </div>
@@ -32,7 +29,7 @@ export default class PoundsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Total LBS Processed</div>
-                  <PoundsGraphWeekly />
+                  <Line data={random1.data} />
                 </div>
               </Frame>
             </div>
@@ -42,7 +39,7 @@ export default class PoundsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Total LBS Processed</div>
-                  <PoundsGraphMonthly />
+                  <Line data={random3.data} />
                 </div>
               </Frame>
             </div>
@@ -52,7 +49,7 @@ export default class PoundsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Total LBS Processed</div>
-                  <PoundsGraphTotal />
+                  <Line data={random2.data} />
                 </div>
               </Frame>
             </div>
