@@ -29,10 +29,10 @@ export default class OrdersGraphTotal extends React.Component {
               text: '',
               align: 'left',
               style: {
-                  color: '#676767',
+                  color: '#01C9E1',
               },
             },
-            colors: ['#676767'],
+            colors: ['#01C9E1'],
             stroke: {
               width: 1.5
             },
@@ -59,7 +59,7 @@ export default class OrdersGraphTotal extends React.Component {
                   offsetX: 0,
                   offsetY: 0,
                   style: {
-                      color: '#676767',
+                      color: '#01C9E1',
                       fontSize: '12px',
                       fontFamily: 'Helvetica, Arial, sans-serif',
                       fontWeight: 600,

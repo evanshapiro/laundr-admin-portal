@@ -1,9 +1,9 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
-import generateMonthlyTimeSeries from "./MonthWiseTimeSeries";
+import generateTotalTimeSeries from "./TotalTimeSeries";
 
 
-export default class OrdersGraphMonthly extends React.Component {
+export default class SubsFamily extends React.Component {
     
     constructor(props) {
         
@@ -12,19 +12,18 @@ export default class OrdersGraphMonthly extends React.Component {
 
       this.state = {
 
-        monthSeries: [{
-            name: 'Monthly Orders',
-            data: generateMonthlyTimeSeries((new Date() - (86400000*360)), 12, {
+        totalSeriesArea: [{
+            name: 'Family Subscribers',
+            data: generateTotalTimeSeries(new Date(2018, 8, 1).getTime(), 28, {
               min: 10,
-              max: 500
+              max: 600
             })
-        }],
-        monthOptions: {
+          }],
+          totalOptionsArea: {
             chart: {
-              id: 'MonthlyOrders',
+              id: 'FamilySubscribers',
               group: 'orders',
-              type: 'line',
-              height: 160,
+              type: 'area',
               background: '#F9F9F9',
             },
             
@@ -50,7 +49,7 @@ export default class OrdersGraphMonthly extends React.Component {
               },
             yaxis: {
                 title: {
-                    text: "Orders",
+                    text: "Subscriber Count",
                     rotate: -90,
                     offsetX: 0,
                     offsetY: 0,
@@ -72,8 +71,8 @@ export default class OrdersGraphMonthly extends React.Component {
         <div id="wrapper">
             
             
-            <div id="chart-line3">
-                <ReactApexChart options={this.state.monthOptions} series={this.state.monthSeries} type="area" height={300} />
+            <div id="chart-area">
+                <ReactApexChart options={this.state.totalOptionsArea} series={this.state.totalSeriesArea} type="area" height={300} />
             </div>
            
         </div>

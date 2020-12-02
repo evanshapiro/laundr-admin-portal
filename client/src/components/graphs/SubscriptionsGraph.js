@@ -1,6 +1,11 @@
 import React from "react";
 import Frame from "../Frame";
 import Line from "../Line";
+import SubsAll from "../SubsAll";
+import SubsStudent from "../SubsStudent";
+import SubsStandard from "../SubsStandard";
+import SubsFamily from "../SubsFamily";
+import SubsPlus from "../SubsPlus";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 export default class SubscriptionsGraph extends React.Component {
@@ -20,7 +25,7 @@ export default class SubscriptionsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Subscriptions</div>
-                  <Line data={random1.data} data2={random3.data} />
+                  <SubsAll/>
                 </div>
               </Frame>
             </div>
@@ -30,7 +35,7 @@ export default class SubscriptionsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Subscriptions</div>
-                  <Line data={random2.data} />
+                  <SubsStudent/>
                 </div>
               </Frame>
             </div>
@@ -40,7 +45,7 @@ export default class SubscriptionsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Subscriptions</div>
-                  <Line data={random3.data} />
+                  <SubsStandard/>
                 </div>
               </Frame>
             </div>
@@ -50,7 +55,7 @@ export default class SubscriptionsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Subscriptions</div>
-                  <Line data={random1.data} />
+                  <SubsPlus/>
                 </div>
               </Frame>
             </div>
@@ -60,7 +65,7 @@ export default class SubscriptionsGraph extends React.Component {
               <Frame data="frame full">
                 <div style={{ justifyContent: "space-around" }}>
                   <div className="frame_header">Subscriptions</div>
-                  <Line data={random2.data} />
+                  <SubsFamily/>
                 </div>
               </Frame>
             </div>

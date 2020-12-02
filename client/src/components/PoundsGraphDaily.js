@@ -31,10 +31,10 @@ export default class PoundsGraphDaily extends React.Component {
             text: '',
             align: 'left',
             style: {
-                color: '#FFB600',
+                color: '#FF5A39',
             },
           },
-          colors: ['#FFB600'],
+          colors: ['#FF5A39'],
           stroke: {
             width: 1.5
           },
@@ -56,7 +56,7 @@ export default class PoundsGraphDaily extends React.Component {
             title: {
                 text: "Pounds Processed",
                 style: {
-                    color: '#FFB600',
+                    color: '#FF5A39',
                     fontSize: '12px',
                     fontFamily: 'Helvetica, Arial, sans-serif',
                     fontWeight: 600,
@@ -76,8 +76,8 @@ export default class PoundsGraphDaily extends React.Component {
     render() {
       return (
         <div id="wrapper">
-            <div id="chart-line">
-                <ReactApexChart options={this.state.dayOptions} series={this.state.daySeries} type="line" height={300} />
+            <div id="chart-area">
+                <ReactApexChart options={this.state.dayOptions} series={this.state.daySeries} type="area" height={300} />
             </div>
         </div>
       );

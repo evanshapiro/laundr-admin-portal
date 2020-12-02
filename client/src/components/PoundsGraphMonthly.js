@@ -30,10 +30,10 @@ export default class PoundsGraphMonthly extends React.Component {
                 text: '',
                 align: 'left',
                 style: {
-                    color: '#FF5A39',
+                    color: '#FFB600',
                 },
             },
-            colors: ['#FF5A39'],
+            colors: ['#FFB600'],
             stroke: {
                 width: 1.5
             },
@@ -60,7 +60,7 @@ export default class PoundsGraphMonthly extends React.Component {
                     offsetX: 0,
                     offsetY: 0,
                     style: {
-                        color: '#FF5A39',
+                        color: '#FFB600',
                         fontSize: '12px',
                         fontFamily: 'Helvetica, Arial, sans-serif',
                         fontWeight: 600,
@@ -74,8 +74,8 @@ export default class PoundsGraphMonthly extends React.Component {
     render() {
       return (
         <div>
-            <div id="chart-line3">
-                <ReactApexChart options={this.state.monthOptions} series={this.state.monthSeries} type="line" height={300} />
+            <div id="chart-area">
+                <ReactApexChart options={this.state.monthOptions} series={this.state.monthSeries} type="area" height={300} />
             </div>
            
         </div>

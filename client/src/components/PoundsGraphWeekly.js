@@ -73,8 +73,8 @@ export default class PoundsGraphWeekly extends React.Component {
     render() {
       return (
         <div id="wrapper">   
-            <div id="chart-line2">
-                <ReactApexChart options={this.state.weekOptions} series={this.state.weekSeries} type="line" height={300} />
+            <div id="chart-area">
+                <ReactApexChart options={this.state.weekOptions} series={this.state.weekSeries} type="area" height={300} />
             </div>
         </div>
       );
