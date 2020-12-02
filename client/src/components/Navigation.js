@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../images/logo-blue.png";
 import { Button } from "@material-ui/core";
+import UserStore from '../stores/UserStore';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -16,6 +17,11 @@ class Navigation extends React.Component {
     let key = `${event.currentTarget.parentNode.id}Open`;
     this.setState({ [key]: !this.state[key] });
   };
+
+  logout(event){
+    UserStore.jwt = ''
+    UserStore.isLoggedIn = false
+  }
 
   render() {
     let leftOpen = this.state.leftOpen ? "open" : "closed";
@@ -66,8 +72,8 @@ class Navigation extends React.Component {
                       </div>                        
                        <br/> */}
                   <div>
-                    <Button>
-                      <Link to="/logout">Logout</Link>
+                    <Button onClick={this.logout}>
+                      Logout
                     </Button>
                   </div>
                 </div>

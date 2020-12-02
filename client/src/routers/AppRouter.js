@@ -7,7 +7,6 @@ import SubscriptionsPage from "../pages/SubscriptionsPage";
 import UsersPage from "../pages/UsersPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import LogoutPage from "../pages/LogoutPage";
 import UserStore from '../stores/UserStore';
 import { observer } from "mobx-react";
 
@@ -22,7 +21,6 @@ const AppRouter = () => (
         <Route path="/orders" component={OrdersPage} />
         <Route path="/subscriptions" component={SubscriptionsPage} />
         <Route path="/users" component={UsersPage} />
-        <Route path="/logout" component={LogoutPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
