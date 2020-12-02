@@ -6,15 +6,18 @@ import OrdersPage from "../pages/OrdersPage";
 import SubscriptionsPage from "../pages/SubscriptionsPage";
 import UsersPage from "../pages/UsersPage";
 import NotFoundPage from "../pages/NotFoundPage";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import LogoutPage from "../pages/LogoutPage";
+import UserStore from '../stores/UserStore';
+import { observer } from "mobx-react";
 
 const AppRouter = () => (
   <BrowserRouter>
     <div>
       <Switch>
-        <Route path="/" component={Dashboard} exact={true} />
         <Route path="/login" component={LoginPage}/>
+        {!UserStore.isLoggedIn ? <Redirect to="/login" /> : null}
+        <Route path="/" component={Dashboard} exact={true} />
         <Route path="/account" component={AccountPage}/>
         <Route path="/orders" component={OrdersPage} />
         <Route path="/subscriptions" component={SubscriptionsPage} />
@@ -26,4 +29,4 @@ const AppRouter = () => (
   </BrowserRouter>
 );
 
-export default AppRouter;
+export default observer(AppRouter);

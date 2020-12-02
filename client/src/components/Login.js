@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from "react-router-dom";
+import {getJWT} from "../connector.js"
+import UserStore from '../stores/UserStore';
 
 
 
@@ -14,8 +16,13 @@ const Login = (props) =>{
     const handleSubmit = async (event) =>{
         event.preventDefault();
 
-        const fields = {password: hash};
-        setloginError("Invalid Credentials!")
+        getJWT(hash).then(res => {
+            UserStore.isLoggedIn = true
+            UserStore.jwt = res["token"]
+        }).catch(err => {
+            console.error(`login failed: ${JSON.stringify(err)}`)
+            setloginError("Invalid Credentials!")
+        })
     };
 
 
@@ -25,7 +32,8 @@ const Login = (props) =>{
 
         if(x.type === "password"){
             x.type = "text";
-        } else{ x.type = "password";
+        } else{
+            x.type = "password";
         }
     }
 

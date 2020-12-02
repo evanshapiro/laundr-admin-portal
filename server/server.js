@@ -4,6 +4,7 @@ const v1Router = require("./routes/v1-route.js")
 const cors = require('cors')
 const path = require('path');
 const publicPath = path.join(__dirname, '..', 'build');
+const auth = require ('./middleware/auth'); 
 const mongoose = require('mongoose');
 // const config = require('config');
 // const db = config.get('mongoURI');
@@ -27,7 +28,7 @@ app.use(bodyParser.json());
 app.use(express.json ({extended: false}));
 
 app.use('/api/auth', require ('./routes/api/auth'));
-app.use('/api/v1', v1Router);
+app.use('/api/v1', auth, v1Router);
 
 //serve static assets in production
 if(process.env.NODE_ENV === 'production'){

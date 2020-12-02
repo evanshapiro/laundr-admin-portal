@@ -4,7 +4,7 @@ class UserStore{
     constructor(){
         extendObservable(this, {
             isLoggedIn: false,
-            email:''
+            jwt:''
         })
     }
 }
