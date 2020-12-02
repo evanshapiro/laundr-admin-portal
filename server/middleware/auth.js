@@ -3,6 +3,11 @@ const config = require('../config/config.js');
 
 
 module.exports = function (req, res, next){
+    if(config.skipAuth){
+        next()
+        return
+    }
+
     //get token from header
     const token = req.header('x-auth-token');
 

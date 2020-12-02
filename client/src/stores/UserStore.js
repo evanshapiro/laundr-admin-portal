@@ -3,7 +3,7 @@ import {extendObservable} from 'mobx';
 class UserStore{
     constructor(){
         extendObservable(this, {
-            isLoggedIn: false,
+            isLoggedIn: Boolean(process.env.REACT_APP_SKIP_LOGIN),
             jwt:''
         })
     }
