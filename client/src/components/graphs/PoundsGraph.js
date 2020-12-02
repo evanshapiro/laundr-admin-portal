@@ -13,8 +13,8 @@ export default class PoundsGraph extends React.Component {
         <Tabs>
           <TabList>
             <Tab>Today</Tab>
-            <Tab>7 Days</Tab>
-            <Tab>30 Days</Tab>
+            <Tab>Weekly</Tab>
+            <Tab>Monthly</Tab>
             <Tab>All</Tab>
           </TabList>
           <TabPanel>
