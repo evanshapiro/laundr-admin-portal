@@ -2,10 +2,6 @@ import React from "react";
 import Frame from "../components/Frame";
 import { getSubscriptionData, getOrderData } from '../connector'
 
-const glance3data = {
-  data: "3,172",
-};
-
 export default class Glance extends React.Component {
   
   constructor(props){

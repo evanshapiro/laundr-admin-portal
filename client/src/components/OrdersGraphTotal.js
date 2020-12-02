@@ -1,6 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import generateTotalTimeSeries from "./TotalTimeSeries";
+import { getOrderData } from '../connector'
 
 export default class OrdersGraphTotal extends React.Component {
     
@@ -10,13 +11,33 @@ export default class OrdersGraphTotal extends React.Component {
       super(props);
 
       this.state = {
+        data: generateTotalTimeSeries(new Date(2018, 8, 1).getTime(), 28, {
+          min: 10,
+          max: 600
+        })
+      }
+    }
+
+    async componentDidMount(){
+      getOrderData()
+        .then(res => {
+          // TODO process orders into time series per month
+          /*
+          this.setState({
+            data: ...,
+          })
+          */
+        }).catch(err => {
+          console.error(err)
+        })
+    }
+
+    render() {
+      let config = {
 
         totalSeriesArea: [{
             name: 'Total Orders',
-            data: generateTotalTimeSeries(new Date(2018, 8, 1).getTime(), 28, {
-              min: 10,
-              max: 600
-            })
+            data: this.data
           }],
           totalOptionsArea: {
             chart: {
@@ -69,15 +90,13 @@ export default class OrdersGraphTotal extends React.Component {
             }
           },
       };
-    }
 
-    render() {
       return (
         <div id="wrapper">
             
             
             <div id="chart-area">
-                <ReactApexChart options={this.state.totalOptionsArea} series={this.state.totalSeriesArea} type="area" height={300} />
+                <ReactApexChart options={config.totalOptionsArea} series={config.totalSeriesArea} type="area" height={300} />
             </div>
            
         </div>
