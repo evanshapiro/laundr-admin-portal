@@ -15,8 +15,13 @@ a:active {
   text-transform: none;
   margin: 0 1vw;
   align-items: center;
-  font-size: $s-size;
+  font-size: 1.25vw;
   .icon-margin {
     margin-right: 1rem;
+  }
+}
+@media (max-width:30em) {
+  .MuiButton-label {
+    font-size: 3.5vw;
   }
 }

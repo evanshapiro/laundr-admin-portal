@@ -59,3 +59,11 @@
     }
   }
 }
+
+@media (max-width:30em) {
+  .react-tabs {
+    &__tab-list {
+      padding-bottom: 1em;
+    }
+  }
+}
