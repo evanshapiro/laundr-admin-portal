@@ -109,7 +109,7 @@ body {
 
 // Left sidebar specific style:
 #left {
-  z-index: 5;
+  z-index: 99;
   .sidebar {
     background: var(--bg-left);
     &.closed {

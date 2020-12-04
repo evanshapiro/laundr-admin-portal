@@ -2,7 +2,12 @@
   color: black;
   font-family: "Raleway", sans-serif;
   font-weight: 200;
-  font-size: 1.2vw;
+  font-size: 2vw;
+}
+@media (max-width:30em) {
+  .tile_text {
+    font-size: 4vw;
+  }
 }
 .tile {
   border: none;
