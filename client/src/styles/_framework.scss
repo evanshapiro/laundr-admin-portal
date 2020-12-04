@@ -4,8 +4,8 @@
   border-radius: $m-size;
   position: relative;
   &.full {
-    width: 100%;
-    height: 52vh;
+    width: 101%;
+    height: 9em;
   }
   &.large1 {
     width: 70%;
@@ -26,14 +26,6 @@
   &.even3 {
     width: 30%;
     height: 8rem;
-  }
-}
-@media (max-width:30em) {
-  .frame {
-    &.full {
-      width: 100%;
-      height: 46vh;
-    }
   }
 }
 @media (width:1024px), (height:1366px) {
