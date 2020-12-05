@@ -207,11 +207,8 @@ input[type="password"] {
 }
 
 /*move up graph in frame*/
-#chart-area {
-	margin-top: -2.65vh;
-}
-#chart-line {
-  margin-top: -2.65vh;
+#chart-area, #chart-line, #chart-line2 {
+  margin-top: -0.425em;
 }
 
 /*move content down on mobile
