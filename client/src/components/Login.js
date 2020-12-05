@@ -17,8 +17,8 @@ const Login = (props) =>{
         event.preventDefault();
 
         getJWT(hash).then(res => {
-            UserStore.isLoggedIn = true
             UserStore.jwt = res["token"]
+            UserStore.isLoggedIn = true
         }).catch(err => {
             console.error(`login failed: ${JSON.stringify(err)}`)
             setloginError("Invalid Credentials!")
