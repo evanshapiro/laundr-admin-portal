@@ -2,20 +2,19 @@
   color: black;
   font-family: "Raleway", sans-serif;
   font-weight: 200;
-  font-size: 2vw;
+  font-size: 1.6vw;
 }
-@media (max-width:30em) {
+@media (max-width: 30em) {
   .tile_text {
     font-size: 4vw;
   }
 }
 .tile {
-  border: none;
   display: flex;
   align-items: center;
   justify-content: space-around;
   &.glance1 {
-    background: $glance1;
+    background: rgba(234, 237, 238, 1);
   }
   &.glance2 {
     background: $glance2;

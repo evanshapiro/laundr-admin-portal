@@ -28,7 +28,7 @@
     height: 8rem;
   }
 }
-@media (width:1024px), (height:1366px) {
+@media (width: 1024px), (height: 1366px) {
   .frame {
     &.full {
       width: 100%;
@@ -69,7 +69,7 @@
 
 .frame_header {
   color: $grey;
-  font-size: 1.6rem;
+  font-size: 1.6vw;
   padding: 2%;
   display: inline;
   position: relative;
