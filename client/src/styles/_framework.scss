@@ -77,3 +77,8 @@
   top: -2rem;
   background: white;
 }
+@media (max-width: 30em) {
+  .frame_header {
+    font-size: 0.5em;
+  }
+}
