@@ -8,6 +8,12 @@
   margin-top: 1rem;
 }
 
+@media (max-width: 30em) {
+  .sidenav a {
+    font-size: 1.25em;
+  }
+}
+
 .sidenav a:hover {
   background-color: white;
   // border-left: 4px solid $primary-blue;
