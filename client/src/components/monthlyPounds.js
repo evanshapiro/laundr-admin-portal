@@ -1,4 +1,4 @@
-export default function generateMonthlyTimeSeries(baseval, orderData) {
+export default function monthlyPounds(baseval, orderData) {
   var i = 0;
   var series = [];
   const now = new Date();
@@ -14,40 +14,40 @@ export default function generateMonthlyTimeSeries(baseval, orderData) {
     const diffDays = Math.round(Math.abs((otherDate - now ) / oneMonth));
     switch(diffDays){
       case 0:
-        months[0] += 1
+        months[0] += (parseFloat(orderData[i].orderWeight))
         break
       case 1:
-        months[1]+=1
+        months[1]+= (parseFloat(orderData[i].orderWeight))
         break
       case 2:
-        months[2]+=1
+        months[2]+= (parseFloat(orderData[i].orderWeight))
         break
       case 3:
-        months[3]+=1
+        months[3]+= (parseFloat(orderData[i].orderWeight))
         break
       case 4:
-        months[4]+=1
+        months[4]+= (parseFloat(orderData[i].orderWeight))
         break
       case 5:
-        months[5]+=1
+        months[5]+= (parseFloat(orderData[i].orderWeight))
         break
       case 6:
-        months[6]+=1
+        months[6]+= (parseFloat(orderData[i].orderWeight))
         break
       case 7:
-        months[7]+=1
+        months[7]+= (parseFloat(orderData[i].orderWeight))
         break
       case 8:
-        months[8]+=1
+        months[8]+= (parseFloat(orderData[i].orderWeight))
         break
       case 9:
-        months[9]+=1
+        months[9]+= (parseFloat(orderData[i].orderWeight))
         break
       case 10:
-        months[10]+=1
+        months[10]+= (parseFloat(orderData[i].orderWeight))
         break
       case 11:
-        months[11] +=1
+        months[11] += (parseFloat(orderData[i].orderWeight))
         break
       default:
         break;
