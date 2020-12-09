@@ -1,117 +1,82 @@
-//THIS ONE WORKS
-import React from "react";
+import React, {useState} from "react";
 import Frame from "../Frame";
 import OrdersGraphDaily from "../OrdersGraphDaily";
 import OrdersGraphWeekly from "../OrdersGraphWeekly";
 import OrdersGraphMonthly from "../OrdersGraphMonthly";
 import OrdersGraphTotal from "../OrdersGraphTotal";
+import {getOrderData} from "../../connector"
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
-export default class OrdersGraph extends React.Component {
-  render() {
-    return (
-      <div>
-        <Tabs>
-          <TabList>
-            <Tab>Today</Tab>
-            <Tab>Weekly</Tab>
-            <Tab>Monthly</Tab>
-            <Tab>All</Tab>
-          </TabList>
-          <TabPanel>
-            <div className="align">
-              <Frame data="frame full">
-                <div style={{ justifyContent: "space-around" }}>
-                  <div className="frame_header">Orders Processed</div>
-                  <OrdersGraphDaily />
-                </div>
-              </Frame>
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <div className="align">
-              <Frame data="frame full">
-                <div style={{ justifyContent: "space-around" }}>
-                  <div className="frame_header">Orders Processed</div>
-                  <OrdersGraphWeekly />
-                </div>
-              </Frame>
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <div className="align">
-              <Frame data="frame full">
-                <div style={{ justifyContent: "space-around" }}>
-                  <div className="frame_header">Orders Processed</div>
-                  <OrdersGraphMonthly />
-                </div>
-              </Frame>
-            </div>
-          </TabPanel>
-          <TabPanel>
-            <div className="align">
-              <Frame data="frame full">
-                <div style={{ justifyContent: "space-around" }}>
-                  <div className="frame_header">Orders Processed</div>
-                  <OrdersGraphTotal />
-                </div>
-              </Frame>
-            </div>
-          </TabPanel>
-        </Tabs>
-      </div>
-    );
+const OrdersGraph = () =>  {
+
+  const [orderData, setOrderData] = useState(null)
+  const [hasOrderData, setHasOrderData] = useState(false)
+
+  
+
+  const getOrderDataNow = async () => {
+    if(!hasOrderData){
+      const res = await getOrderData()
+      setOrderData(res)
+      setHasOrderData(true)
+    }
   }
+
+  getOrderDataNow()
+
+  return (
+    <div>
+      <Tabs>
+        <TabList>
+          <Tab>Daily</Tab>
+          <Tab>Weekly</Tab>
+          <Tab>Monthly</Tab>
+          <Tab>All</Tab>
+        </TabList>
+        <TabPanel>
+          <div className="align">
+            <Frame data="frame full">
+              <div style={{ justifyContent: "space-around" }}>
+                <div className="frame_header">Orders Processed</div>
+                <OrdersGraphDaily orderData={orderData} />
+              </div>
+            </Frame>
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="align">
+            <Frame data="frame full">
+              <div style={{ justifyContent: "space-around" }}>
+                <div className="frame_header">Orders Processed</div>
+                <OrdersGraphWeekly orderData={orderData}/>
+              </div>
+            </Frame>
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="align">
+            <Frame data="frame full">
+              <div style={{ justifyContent: "space-around" }}>
+                <div className="frame_header">Orders Processed</div>
+                <OrdersGraphMonthly orderData={orderData}/>
+              </div>
+            </Frame>
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className="align">
+            <Frame data="frame full">
+              <div style={{ justifyContent: "space-around" }}>
+                <div className="frame_header">Orders Processed</div>
+                <OrdersGraphTotal orderData={orderData}/>
+              </div>
+            </Frame>
+          </div>
+        </TabPanel>
+      </Tabs>
+    </div>
+  );
 }
 
-const random1 = {
-  data: [
-    { x: 1, y: 3 },
-    { x: 2, y: 5 },
-    { x: 3, y: 15 },
-    { x: 4, y: 12 },
-    { x: 5, y: 14 },
-    { x: 6, y: 11 },
-    { x: 7, y: 15 },
-    { x: 8, y: 12 },
-    { x: 9, y: 16 },
-    { x: 10, y: 5 },
-    { x: 11, y: 15 },
-    { x: 12, y: 20 },
-  ],
-};
-
-const random2 = {
-  data: [
-    { x: 1, y: 5 },
-    { x: 2, y: 15 },
-    { x: 3, y: 5 },
-    { x: 4, y: 2 },
-    { x: 5, y: 13 },
-    { x: 6, y: 10 },
-    { x: 7, y: 17 },
-    { x: 8, y: 12 },
-    { x: 9, y: 18 },
-    { x: 10, y: 15 },
-    { x: 11, y: 14 },
-    { x: 12, y: 20 },
-  ],
-};
-
-const random3 = {
-  data: [
-    { x: 1, y: 1 },
-    { x: 2, y: 3 },
-    { x: 3, y: 2 },
-    { x: 4, y: 10 },
-    { x: 5, y: 12 },
-    { x: 6, y: 8 },
-    { x: 7, y: 15 },
-    { x: 8, y: 12 },
-    { x: 9, y: 14 },
-    { x: 10, y: 20 },
-    { x: 11, y: 16 },
-    { x: 12, y: 25 },
-  ],
-};
+export default OrdersGraph;

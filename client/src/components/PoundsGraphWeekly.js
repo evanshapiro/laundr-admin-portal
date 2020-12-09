@@ -1,84 +1,105 @@
-import React from "react";
+import React, {useState} from "react";
 import ReactApexChart from "react-apexcharts";
-import generateWeeklyTimeSeries from "./weekWiseTimeSeries";
+import weeklyPounds from "./weeklyPounds";
+import {getOrderData} from "../connector"
 
-export default class PoundsGraphWeekly extends React.Component {
-    
-    constructor(props) {
+
+
+const PoundsGraphWeekly = () => {
+
+  const [orderData, setOrderData] = useState(null)
+  const [hasOrderData, setHasOrderData] = useState(false)
+  const [weekSeries, setWeekSeries] = useState(null)
+  const [weekOptions, setWeekOptions] = useState({
+    chart: {
+      id: "WeeklyOrders",
+      group: 'orders',
+      type: 'line',
+      height: 160,
+      background: '#F9F9F9',
+    },
+    title: {
+      text: '',
+      align: 'left',
+      style: {
+          color: '#01C9E1',
+      },
+    },
+    colors: ['#01C9E1'],
+    stroke: {
+      width: 1.5
+    },
+    xaxis:{
+      type: 'datetime',
+      labels: {
+          show: true,
+          format: 'dd MMM yy', //changes 
+         
+          style: {
+              fontSize: '10px',
+              fontFamily: 'Helvetica, Arial, sans-serif',
+              fontWeight: 400,
+          },   
+      },
+
+    },
+    yaxis: {
+      title: {
+          text: "Pounds Processed",
+          style: {
+              color: '#01C9E1',
+              fontSize: '12px',
+              fontFamily: 'Helvetica, Arial, sans-serif',
+              fontWeight: 600,
+          },
+      },
+      labels: {
         
-    //   var date = new Date(Date.UTC(2020, 0, 1));
-      super(props);
+        maxWidth: 40,
+        
+      }
+    }
+  })
 
-      this.state = {
+  
 
-        weekSeries: [{
-          name: 'Weekly Pounds Processed',
-          data: generateWeeklyTimeSeries((new Date() - (86400000*77)), 12, {
-            min: 10,
-            max: 100
-          })
-        }],
-        weekOptions: {
-          chart: {
-            id: 'WeeklyOrders',
-            group: 'orders',
-            type: 'line',
-            height: 160,
-            background: '#F9F9F9',
-          },
-          title: {
-            text: '',
-            align: 'left',
-            style: {
-                color: '#01C9E1',
-            },
-          },
-          colors: ['#01C9E1'],
-          stroke: {
-            width: 1.5
-          },
-          xaxis:{
-            type: 'datetime',
-            labels: {
-                show: true,
-                format: 'dd MMM yy', //changes 
-                
-               
-                style: {
-                    fontSize: '10px',
-                    fontFamily: 'Helvetica, Arial, sans-serif',
-                    fontWeight: 400,
-                },   
-            },
-
-          },
-          yaxis: {
-            title: {
-                text: "Pounds Processed",
-                rotate: -90,
-                offsetX: 0,
-                offsetY: 0,
-                style: {
-                    color: '#01C9E1',
-                    fontSize: '12px',
-                    fontFamily: 'Helvetica, Arial, sans-serif',
-                    fontWeight: 600,
-                },
-            },
-          }
-        },
-      };
+  const getOrderDataNow = async () =>{
+    if(!hasOrderData){
+      const res = await getOrderData()
+      setOrderData(res)
+      setHasOrderData(true)
+     
     }
 
-    render() {
-      return (
-        <div id="wrapper">   
-            <div id="chart-area">
-                <ReactApexChart options={this.state.weekOptions} series={this.state.weekSeries} type="area" height={300} />
-            </div>
-        </div>
-      );
-    }
   }
+
+  getOrderDataNow()
+  
+ 
+  if(weekSeries === null && orderData != null){
+    const data = weeklyPounds(new Date() - (86400000*77),orderData)
+    
+    const d = [{  
+      name: 'Weekly Orders',
+      data: data,
+    }] 
+    setWeekSeries(d)
+  }
+   
+
+    return (
+      <div id="wrapper">
+          <div id="chart-area">
+          {weekSeries !== null && (<ReactApexChart 
+            options={weekOptions} 
+            series={weekSeries} 
+            type="area" 
+            height={300} />)}
+          </div>
+      </div>
+    );
+  }
+
+  export default PoundsGraphWeekly
 
 
