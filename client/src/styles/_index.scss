@@ -96,16 +96,15 @@ textarea {
   padding-top: 5%;
   border-radius: 20px !important;
   padding-bottom: 10px !important;
- /* background-image:url('../images/lock.png');
+  /* background-image:url('../images/lock.png');
   background-position: calc(50% + 1rem) calc(50% - 5rem);
   background-repeat:no-repeat;
   background-size: 40px; */
   border: solid #676767 !important;
   border-radius: 2px;
   width: 40vw;
-  margin-top:-5em
 }
-@media (max-width:30em) {
+@media (max-width: 30em) {
   .modal-content {
     width: 80vw;
     margin-left: -3.5em;
@@ -207,7 +206,9 @@ input[type="password"] {
 }
 
 /*move up graph in frame*/
-#chart-area, #chart-line, #chart-line2 {
+#chart-area,
+#chart-line,
+#chart-line2 {
   margin-top: -0.425em;
 }
 
