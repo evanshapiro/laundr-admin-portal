@@ -19,8 +19,8 @@ class Dashboard extends React.Component {
       <div>
         <Navigation>
           <div>
-            <SubscriptionsGraph />
             <Glance />
+            <SubscriptionsGraph />
             <OrdersGraph />
             <PoundsGraph />
           </div>
